@@ -1,0 +1,8 @@
+.all_posts {
+  width: 500px;
+  .new_post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

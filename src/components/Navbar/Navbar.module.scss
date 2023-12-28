@@ -1,0 +1,13 @@
+.nav{
+  display: grid;
+  grid-column: auto;
+  grid-area: n;
+  background-color: #07B568;
+  grid-template-rows: 40px 40px 40px 40px 80px;
+  a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+  }
+}
