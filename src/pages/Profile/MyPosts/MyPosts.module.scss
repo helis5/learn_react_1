@@ -1,8 +1,15 @@
 .all_posts {
+  display: grid;
+  grid-gap: 10px;
+  margin: 10px;
   width: 500px;
   .new_post {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  .posts{
+    display: grid;
+    grid-gap: 10px;
   }
 }

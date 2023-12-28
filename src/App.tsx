@@ -10,9 +10,6 @@ import Music from "./pages/Music/Music";
 import Settings from "./pages/Settings/Settings"
 
 
-
-
-
 function App() {
     return (
         <BrowserRouter>
@@ -22,11 +19,11 @@ function App() {
 
                 <div className={s.App_content}>
                     <Routes>
-                        <Route path="/dialogs" Component={Dialogs}/>
-                        <Route path="/profile" Component={Profile}/>
-                        <Route path="/news" Component={News}/>
-                        <Route path="/music" Component={Music}/>
-                        <Route path="/settings" Component={Settings}/>
+                        <Route path="/" Component={Profile}/>
+                        <Route path="/dialogs*" Component={Dialogs}/>
+                        <Route path="/news*" Component={News}/>
+                        <Route path="/music*" Component={Music}/>
+                        <Route path="/settings*" Component={Settings}/>
                     </Routes>
 
                 </div>

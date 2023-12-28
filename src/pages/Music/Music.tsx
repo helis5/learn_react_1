@@ -4,7 +4,7 @@ import s from './Music.module.scss'
 const Music = () => {
     return (
         <div>
-            Nusic
+            Music
         </div>
     )
 }
