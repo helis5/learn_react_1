@@ -3,11 +3,11 @@ import s from './Navbar.module.scss'
 
 const Navbar = () => {
     return (<nav className={s.nav}>
-        <a href="/">Profile</a>
-        <a href="/">Messages</a>
-        <a href="/">News</a>
-        <a href="/">Music</a>
-        <a href="/">Settings</a>
+        <a href="/profile">Profile</a>
+        <a href="/dialogs">Messages</a>
+        <a href="/news">News</a>
+        <a href="/music">Music</a>
+        <a href="/settings">Settings</a>
     </nav>)
 }
 export default Navbar;
