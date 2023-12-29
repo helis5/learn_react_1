@@ -50,11 +50,8 @@ const Dialogs: React.FC<DialogsProps> = (props) => {
         {id: '6', message: 'LI'},
     ];
     //преобразование с помощью .map в массив TSX элементов
-    let dialogsElements = dialogsData
-        .map(d => <DialogItem name={d.name} id={d.id}/>);
-
-    let messagesElements = messages
-        .map(m => <Message message={m.message}/>)
+    let dialogsElements = dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let messagesElements = messages.map(m => <Message message={m.message}/>)
 
     return (
         <div className={s.dialogs}>
@@ -62,9 +59,7 @@ const Dialogs: React.FC<DialogsProps> = (props) => {
                 {dialogsElements}
             </nav>
             <div className={s.messages}>
-                {/*<Message message={messagesData[0].message}/>*/}
-                {/*<Message message="How are you?"/>*/}
-                {/*<Message message="Yo"/>*/}
+                {messagesElements}
             </div>
         </div>
     )
