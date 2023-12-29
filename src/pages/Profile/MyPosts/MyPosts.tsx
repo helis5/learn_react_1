@@ -9,6 +9,8 @@ const MyPosts: React.FC = () => {
         {id: '2', message: 'Its my first post', likesCount: '11'},
     ];
 
+    let postElements = postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+
     return (<div className={s.all_posts}>
         <h3>My posts</h3>
         <div className={s.new_post}>
@@ -16,8 +18,7 @@ const MyPosts: React.FC = () => {
             <button>Add post</button>
         </div>
         <div className={s.posts}>
-            <Post message={postData[0].message} likesCount={postData[0].likesCount}/>
-            <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+            {postElements}
         </div>
     </div>)
 }

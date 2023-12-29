@@ -5,7 +5,7 @@ const ProfileInfo = () => {
     return (<div className={s.content}>
         <div>
             <img
-                src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
+                src="https://img.freepik.com/premium-photo/wide-panoramic-landscape-with-the-edge-of-a-coniferous-forest-and-mountains-in-a-light-fog-atmospheric-dramatic-autumn-mountain-landscape-kurai-steppe-altai-mountains_158388-6954.jpg?w=1800"
                 alt=""/>
         </div>
         <div className={s.descriptionBlock}>
