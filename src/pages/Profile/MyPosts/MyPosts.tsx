@@ -4,6 +4,7 @@ import Post from "./Post/Post";
 
 const MyPosts: React.FC = () => {
     return (<div className={s.all_posts}>
+        <h3>My posts</h3>
         <div className={s.new_post}>
             <textarea></textarea>
             <button>Add post</button>

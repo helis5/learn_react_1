@@ -7,7 +7,7 @@ const getClassName = (navData: { isActive: boolean }) => navData.isActive ? s.ac
 const Navbar: React.FC = () => {
     return (<nav className={s.nav}>
         <div>
-            {/*<NavLink to="/" className = {getClassName} >Profile</NavLink>*/}
+            {/*<NavLink to="/" className = {getClassName} >ProfileInfo</NavLink>*/}
             <NavLink to="/" className={getClassName}>Profile</NavLink>
         </div>
         <div>
