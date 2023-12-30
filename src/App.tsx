@@ -19,11 +19,11 @@ function App() {
 
                 <div className={s.App_content}>
                     <Routes>
-                        <Route path="/" Component={Profile}/>
-                        <Route path="/dialogs*" Component={Dialogs}/>
-                        <Route path="/news*" Component={News}/>
-                        <Route path="/music*" Component={Music}/>
-                        <Route path="/settings*" Component={Settings}/>
+                        <Route path="/" element={<Profile />}/>
+                        <Route path="/dialogs*" element={<Dialogs />}/>
+                        <Route path="/news*" element={<News />}/>
+                        <Route path="/music*" element={<Music />}/>
+                        <Route path="/settings*" element={<Settings />}/>
                     </Routes>
 
                 </div>
