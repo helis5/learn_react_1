@@ -2,14 +2,13 @@ import React from 'react';
 import s from './MyPosts.module.scss'
 import Post from "./Post/Post";
 
-const MyPosts: React.FC = () => {
+interface MyPostsProps {
+    postData: ({ likesCount: string, id: string, message: string })[]
+}
 
-    let postData = [
-        {id: '1', message: 'Hi, how are you?', likesCount: '12'},
-        {id: '2', message: 'Its my first post', likesCount: '11'},
-    ];
+const MyPosts: React.FC<MyPostsProps> = (props) => {
 
-    let postElements = postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+    let postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
     return (<div className={s.all_posts}>
         <h3>My posts</h3>
