@@ -8,13 +8,17 @@ import News from "./pages/News/News"
 import Music from "./pages/Music/Music";
 import Settings from "./pages/Settings/Settings"
 import Dialogs from "./pages/Dialogs/Dialogs";
-import {postData, dialogsData, messages} from "./ServerData";
+import state from "./redux/state";
 
+interface AppProps {
+    state: {
+        messages: { id: string, message: string }[],
+        dialogs: { name: string, id: string }[],
+        posts: ({ likesCount: string, id: string, message: string })[],
+    }
+}
 
-//изначальные данные(допустим они пришли с сервера)
-
-
-const App: React.FC = (props) => {
+const App: React.FC<AppProps> = (props) => {
     return (
         <BrowserRouter>
             <div className={s.App}>
@@ -23,8 +27,8 @@ const App: React.FC = (props) => {
 
                 <div className={s.App_content}>
                     <Routes>
-                        <Route path="/" element={<Profile postData={postData} />}/>
-                        <Route path="/dialogs*" element={<Dialogs messages={messages} dialogsData={dialogsData} />}/>
+                        <Route path="/" element={<Profile posts={props.state.posts} />}/>
+                        <Route path="/dialogs*" element={<Dialogs messages={state.messages} dialogs={props.state.dialogs} />}/>
                         <Route path="/news*" element={<News />}/>
                         <Route path="/music*" element={<Music />}/>
                         <Route path="/settings*" element={<Settings />}/>

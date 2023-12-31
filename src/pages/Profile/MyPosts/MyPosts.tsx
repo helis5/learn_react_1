@@ -3,12 +3,12 @@ import s from './MyPosts.module.scss'
 import Post from "./Post/Post";
 
 interface MyPostsProps {
-    postData: ({ likesCount: string, id: string, message: string })[]
+    posts: ({ likesCount: string, id: string, message: string })[]
 }
 
 const MyPosts: React.FC<MyPostsProps> = (props) => {
 
-    let postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+    let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
     return (<div className={s.all_posts}>
         <h3>My posts</h3>
