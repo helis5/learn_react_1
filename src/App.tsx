@@ -8,13 +8,19 @@ import News from "./pages/News/News"
 import Music from "./pages/Music/Music";
 import Settings from "./pages/Settings/Settings"
 import Dialogs from "./pages/Dialogs/Dialogs";
-import state from "./redux/state";
 
 interface AppProps {
     state: {
-        messages: { id: string, message: string }[],
-        dialogs: { name: string, id: string }[],
-        posts: ({ likesCount: string, id: string, message: string })[],
+        navbar: {
+            friends: { id: string, name: string }[],
+        },
+        profilePage: {
+            posts: { likesCount: string, id: string, message: string }[],
+        },
+        dialogsPage: {
+            messages: { id: string, message: string }[],
+            dialogs: { name: string, id: string }[],
+        },
     }
 }
 
@@ -23,15 +29,15 @@ const App: React.FC<AppProps> = (props) => {
         <BrowserRouter>
             <div className={s.App}>
                 <Header/>
-                <Navbar/>
+                <Navbar state={props.state.navbar}/>
 
                 <div className={s.App_content}>
                     <Routes>
-                        <Route path="/" element={<Profile posts={props.state.posts} />}/>
-                        <Route path="/dialogs*" element={<Dialogs messages={state.messages} dialogs={props.state.dialogs} />}/>
-                        <Route path="/news*" element={<News />}/>
-                        <Route path="/music*" element={<Music />}/>
-                        <Route path="/settings*" element={<Settings />}/>
+                        <Route path="/" element={<Profile state={props.state.profilePage}/>}/>
+                        <Route path="/dialogs*" element={<Dialogs state={props.state.dialogsPage}/>}/>
+                        <Route path="/news*" element={<News/>}/>
+                        <Route path="/music*" element={<Music/>}/>
+                        <Route path="/settings*" element={<Settings/>}/>
                     </Routes>
 
                 </div>

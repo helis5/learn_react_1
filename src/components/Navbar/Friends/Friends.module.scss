@@ -1,0 +1,23 @@
+.friends {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  grid-gap: 10px;
+
+  .friend {
+    display: grid;
+    color: white;
+
+    .circle {
+      background-color: yellow;
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+    }
+
+    .name {
+      display: grid;
+      justify-content: center;
+    }
+  }
+}

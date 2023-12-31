@@ -4,14 +4,14 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 interface ProfileProps {
-    posts: ({ likesCount: string, id: string, message: string })[]
+    state: { posts: { likesCount: string, id: string, message: string }[] }
 }
 
 const Profile: React.FC<ProfileProps> = (props) => {
 
     return (<div className={s.content}>
         <ProfileInfo/>
-        <MyPosts posts={props.posts}/>
+        <MyPosts state={props.state.posts}/>
     </div>)
 }
 export default Profile;
