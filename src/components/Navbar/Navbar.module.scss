@@ -1,10 +1,11 @@
 .nav {
+  grid-area: n;
   display: grid;
   grid-column: auto;
-  grid-area: n;
-  background-color: #07B568;
-  grid-template-rows: 40px 40px 40px 40px 90px 90px;
+  grid-template-rows: repeat(4, 40px) 90px 90px;
+
   padding: 20px;
+  background-color: #07B568;
 
   .navLink {
     display: flex;

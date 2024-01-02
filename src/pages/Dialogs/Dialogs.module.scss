@@ -1,9 +1,13 @@
 .dialogs {
   background-color: #dbd8b8;
   display: grid;
+  grid-template-areas: "a b"
+                        ". c";
   grid-template-columns: 2fr 10fr;
+  grid-template-rows: 1fr 100px;
 
   .dialogs_items {
+    grid-area: a;
     padding: 10px;
 
     .dialog {
@@ -15,10 +19,29 @@
   }
 
   .messages {
+    grid-area: b;
     padding: 10px;
 
     .message {
 
     }
   }
+  .new_message {
+    display: grid;
+    grid-area: c;
+    grid-template-areas:  "t t"
+                          ". b";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 100px;
+    grid-gap: 10px;
+    padding: 10px;
+    textarea{
+      grid-area: t;
+    }
+    button{
+      grid-area: b;
+      width: 100px;
+    }
+  }
+
 }
