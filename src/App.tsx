@@ -12,14 +12,14 @@ import Dialogs from "./pages/Dialogs/Dialogs";
 interface AppProps {
     state: {
         navbar: {
-            friends: { id: string, name: string }[],
+            friends: { id: number, name: string }[],
         },
         profilePage: {
-            posts: { likesCount: string, id: string, message: string }[],
+            posts: { id: number, likesCount: number, message: string }[],
         },
         dialogsPage: {
-            messages: { id: string, message: string }[],
-            dialogs: { name: string, id: string }[],
+            messages: { id: number, message: string }[],
+            dialogs: { id: number, name: string }[],
         },
     }
 }

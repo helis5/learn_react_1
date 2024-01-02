@@ -3,12 +3,12 @@ import s from './MyPosts.module.scss'
 import Post from "./Post/Post";
 
 interface MyPostsProps {
-    state: ({ likesCount: string, id: string, message: string })[]
+    state: ({ id: number, likesCount: number, message: string })[]
 }
 
 const MyPosts: React.FC<MyPostsProps> = (props) => {
 
-    let postElements = props.state.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
+    let postElements = props.state.map(p => <Post message={p.message} likesCount={String(p.likesCount)}/>);
 
     let newPostElement = useRef<HTMLTextAreaElement>(null);
 

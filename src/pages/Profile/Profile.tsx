@@ -4,7 +4,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 interface ProfileProps {
-    state: { posts: { likesCount: string, id: string, message: string }[] }
+    state: { posts: { id: number, likesCount: number, message: string }[] }
 }
 
 const Profile: React.FC<ProfileProps> = (props) => {

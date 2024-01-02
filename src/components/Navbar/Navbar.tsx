@@ -7,7 +7,7 @@ const getClassName = (navData: { isActive: boolean }) => navData.isActive ? s.ac
 
 interface NavbarProps {
     state: {
-        friends: { id: string, name: string }[],
+        friends: { id: number, name: string }[],
     }
 }
 

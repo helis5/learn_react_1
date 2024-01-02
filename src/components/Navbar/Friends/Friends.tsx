@@ -5,7 +5,7 @@ import "../Navbar";
 
 interface FriendsProps {
     state: {
-        friends: { id: string, name: string }[],
+        friends: { id: number, name: string }[],
     }
 }
 
