@@ -8,7 +8,7 @@ interface ProfileProps {
 }
 
 const Profile: React.FC<ProfileProps> = (props) => {
-
+    console.log('a')
     return (<div className={s.content}>
         <ProfileInfo/>
         <MyPosts state={props.state.posts}/>
