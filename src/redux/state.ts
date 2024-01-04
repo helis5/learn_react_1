@@ -1,3 +1,6 @@
+// @ts-nocheck
+import {rerenderEntireTree} from "../render";
+
 let state = {
 
     navbar: {
@@ -12,6 +15,7 @@ let state = {
             {id: 1, message: 'Hi, how are you?', likesCount: 12},
             {id: 2, message: 'Its my first post', likesCount: 11},
         ],
+        newPostText: "Этот текст поста из state.ts",
 
     },
     dialogsPage: {
@@ -23,6 +27,7 @@ let state = {
             {id: 5, message: 'LI'},
             {id: 6, message: 'LI'},
         ],
+        newMessageText: "Этот текст сообщения из state.ts",
         dialogs: [
             {id: 1, name: 'Dima'},
             {id: 2, name: 'Andrew'},
@@ -40,14 +45,36 @@ interface newPostProps {
     likesCount: number,
 }
 
-// export let addPost = (postMessage: {}) => {
-//     let newPost = {
-//         id: 5,
-//         message: postMessage,
-//         likesCount: 0,
-//     };
-//
-//     state.profilePage.posts.push(newPost);
-// }
+export let addPost = (postMessage: {}) => {
+    let newPost = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likesCount: 0,
+    };
+
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export let addMessage = (dialogMessage) => {
+    let newMessage = {
+        id: 5,
+        message: state.dialogsPage.newMessageText,
+    }
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText = '';
+    rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
+    rerenderEntireTree(state);
+}
 
 export default state;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, {useRef} from 'react';
 import s from './Dialogs.module.scss';
 import DialogItem from "./DialogItem/DialogItem";
@@ -13,10 +14,16 @@ const Dialogs: React.FC<DialogsProps> = (props) => {
     let dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={String(d.id)}/>);
     let messagesElements = props.state.messages.map(m => <Message message={m.message}/>);
 
-    let newPostElement = useRef<HTMLTextAreaElement>(null);
+    let newMessageElement = useRef<HTMLTextAreaElement>(null);
 
     const addMessage = () => {
-        alert(newPostElement.current?.value);
+        let text = newMessageElement.current.value;
+        props.addMessage(text);
+    }
+
+    const onMessageChange = () => {
+        let text = newMessageElement.current.value;
+        props.updateNewMessageText(text);
     }
 
     return (
@@ -28,7 +35,7 @@ const Dialogs: React.FC<DialogsProps> = (props) => {
                 {messagesElements}
             </div>
             <div className={s.new_message}>
-                <textarea ref={newPostElement}></textarea>
+                <textarea ref={newMessageElement} onChange={onMessageChange} value={props.state.newMessageText} />
                 <button onClick={addMessage}>Отправить</button>
             </div>
         </div>

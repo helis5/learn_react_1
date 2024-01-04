@@ -9,7 +9,8 @@ import News from "./pages/News/News"
 import Music from "./pages/Music/Music";
 import Settings from "./pages/Settings/Settings"
 import Dialogs from "./pages/Dialogs/Dialogs";
-import initialState from "./redux/state";
+import initialState, {updateNewMessageText, updateNewPostText} from "./redux/state";
+
 
 interface AppProps {
     state: {
@@ -29,10 +30,11 @@ interface AppProps {
 // export const ContextApp = createContext({state: initialState, setState: ()=>{}})
 
 const App: React.FC<AppProps> = (props) => {
+
     // const [state, setState] = useState(initialState);
     //
     // console.log('state ', state);
-
+    console.log('hi')
     return (
         // <ContextApp.Provider value={{state, setState}} >
             <BrowserRouter>
@@ -42,8 +44,12 @@ const App: React.FC<AppProps> = (props) => {
                     {/*<button onClick={addPost}>Кнопка</button>*/}
                     <div className={s.App_content}>
                         <Routes>
-                            <Route path="/" element={<Profile state={props.state.profilePage}/>}/>
-                            <Route path="/dialogs*" element={<Dialogs state={props.state.dialogsPage}/>}/>
+                            <Route path="/" element={<Profile state={props.state.profilePage}
+                                                              addPost={props.addPost}
+                                                              updateNewPostText={props.updateNewPostText}/>}/>
+                            <Route path="/dialogs*" element={<Dialogs state={props.state.dialogsPage}
+                                                                      addMessage={props.addMessage}
+                                                                      updateNewMessageText={props.updateNewMessageText}/>}/>
                             <Route path="/news*" element={<News/>}/>
                             <Route path="/music*" element={<Music/>}/>
                             <Route path="/settings*" element={<Settings/>}/>
