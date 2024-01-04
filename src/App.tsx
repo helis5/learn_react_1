@@ -11,39 +11,39 @@ import Settings from "./pages/Settings/Settings"
 import Dialogs from "./pages/Dialogs/Dialogs";
 import initialState from "./redux/state";
 
-// interface AppProps {
-//     state: {
-//         navbar: {
-//             friends: { id: number, name: string }[],
-//         },
-//         profilePage: {
-//             posts: { id: number, likesCount: number, message: string }[],
-//         },
-//         dialogsPage: {
-//             messages: { id: number, message: string }[],
-//             dialogs: { id: number, name: string }[],
-//         },
-//     }
-// }
+interface AppProps {
+    state: {
+        navbar: {
+            friends: { id: number, name: string }[],
+        },
+        profilePage: {
+            posts: { id: number, likesCount: number, message: string }[],
+        },
+        dialogsPage: {
+            messages: { id: number, message: string }[],
+            dialogs: { id: number, name: string }[],
+        },
+    }
+}
 
-export const ContextApp = createContext({state: initialState, setState: ()=>{}})
+// export const ContextApp = createContext({state: initialState, setState: ()=>{}})
 
 const App: React.FC<AppProps> = (props) => {
-    const [state, setState] = useState(initialState);
-
-    console.log('state ', state);
+    // const [state, setState] = useState(initialState);
+    //
+    // console.log('state ', state);
 
     return (
-        <ContextApp.Provider value={{state, setState}} >
+        // <ContextApp.Provider value={{state, setState}} >
             <BrowserRouter>
                 <div className={s.App}>
                     <Header/>
-                    <Navbar state={state.navbar}/>
+                    <Navbar state={props.state.navbar}/>
                     {/*<button onClick={addPost}>Кнопка</button>*/}
                     <div className={s.App_content}>
                         <Routes>
-                            <Route path="/" element={<Profile state={state.profilePage}/>}/>
-                            <Route path="/dialogs*" element={<Dialogs state={state.dialogsPage}/>}/>
+                            <Route path="/" element={<Profile state={props.state.profilePage}/>}/>
+                            <Route path="/dialogs*" element={<Dialogs state={props.state.dialogsPage}/>}/>
                             <Route path="/news*" element={<News/>}/>
                             <Route path="/music*" element={<Music/>}/>
                             <Route path="/settings*" element={<Settings/>}/>
@@ -53,7 +53,7 @@ const App: React.FC<AppProps> = (props) => {
 
                 </div>
             </BrowserRouter>
-        </ContextApp.Provider>
+        // </ContextApp.Provider>
 
     );
 }
