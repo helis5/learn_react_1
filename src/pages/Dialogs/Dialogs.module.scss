@@ -1,7 +1,7 @@
 .dialogs {
   background-color: #dbd8b8;
   display: grid;
-  height: 95%;
+  height: 100%;
   grid-template-areas: "a b"
                         ". c";
   grid-template-columns: 2fr 10fr;
